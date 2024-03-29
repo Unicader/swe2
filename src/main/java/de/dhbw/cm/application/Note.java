@@ -1,5 +1,8 @@
 package de.dhbw.cm.application;
 
+import java.lang.annotation.Documented;
+import java.time.Month;
+
 public class Note {
     private String titel;
     private String notes;
@@ -10,6 +13,11 @@ public class Note {
         this.titel = titel;
         this.notes = notes;
         this.priority = priority;
+        this.date = generatePseudeDate();
+    }
+
+    private Date generatePseudeDate() {
+        return new Date(31, 2099, Month.DECEMBER);
     }
 
     public Note(String titel, String notes, Date date, Priority priority) {
