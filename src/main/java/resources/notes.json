@@ -1,0 +1,26 @@
+[
+  {
+    "titel": "Meeting mit Kunden",
+    "notes": "Besprechung der Anforderungen für das neue Projekt",
+    "day": 28,
+    "year": 2024,
+    "month": "MARCH",
+    "priority": "HIGH"
+  },
+  {
+    "titel": "Einkaufsliste",
+    "notes": "Milch, Eier, Brot, Obst und Gemüse besorgen",
+    "day": 29,
+    "year": 2024,
+    "month": "MARCH",
+    "priority": "MEDIUM"
+  },
+  {
+    "titel": "Geburtstagsfeier",
+    "notes": "Partyplanung und Einladungen verschicken",
+    "day": 10,
+    "year": 2024,
+    "month": "APRIL",
+    "priority": "LOW"
+  }
+]
