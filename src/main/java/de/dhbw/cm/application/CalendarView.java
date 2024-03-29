@@ -3,14 +3,10 @@ package de.dhbw.cm.application;
 import java.util.Map;
 
 public class CalendarView {
-    public void printMonth(Map<Integer, Weekday> weekdaysMap){
+    public void printMonth(int year, Month month, Map<Integer, Weekday> weekdaysMap){
 
         StringBuilder calenderLine = new StringBuilder();
-        for (Weekday weekday : Weekday.values()){
-            calenderLine.append(weekday.getShortcut()).append(" ");
-        }
-        System.out.println(calenderLine);
-        calenderLine.setLength(0);
+        printHeadOfCalender(year, month);
         calenderLine.append(buildUpFiller(weekdaysMap.get(1)));
         int iterateIndex = 1;
         for(Map.Entry<Integer, Weekday> dateWithWeekday : weekdaysMap.entrySet()){
@@ -37,4 +33,15 @@ public class CalendarView {
         }
         return fillerBuilded;
     }
+
+    private void printHeadOfCalender(int year, Month month){
+        StringBuilder calenderLine = new StringBuilder();
+        calenderLine.append(month).append("   ").append(year);
+        System.out.println(calenderLine);
+        calenderLine.setLength(0);
+        for (Weekday weekday : Weekday.values()){
+            calenderLine.append(weekday.getShortcut()).append(" ");
+        }
+        System.out.println(calenderLine);
+    };
 }

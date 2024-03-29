@@ -1,5 +1,6 @@
 package de.dhbw.cm.application;
 
+import javax.xml.crypto.dsig.keyinfo.KeyValue;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,18 +9,20 @@ import static de.dhbw.cm.application.Weekday.*;
 public class CalendarManagerApp {
 
     private int year;
-    private int month;
+    private int monthIndex;
+    private Month month;
     private Map<Integer, Weekday> weekdaysMap = new HashMap<>();
     private CalendarView calendarView;
-    public CalendarManagerApp(int year, int month) {
+    public CalendarManagerApp(int year, int monthIndex) {
         this.year = year;
-        this.month = month;
+        this.monthIndex = monthIndex;
+        month = Month.values()[monthIndex + 1];
         getWeekdayPerDay();
         calendarView = new CalendarView();
     }
 
     public void printMonth(){
-        calendarView.printMonth(weekdaysMap);
+        calendarView.printMonth(year, month, weekdaysMap);
     }
     public boolean isLeapYear() {
         return ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0));
@@ -28,7 +31,7 @@ public class CalendarManagerApp {
     public Map<Integer, Weekday> getWeekdayPerDay() {
 
         for (int day = 1; day <= getDaysInMonth(); day++) {
-            Weekday weekday = calculateWeekday(day, month, year);
+            Weekday weekday = calculateWeekday(day, monthIndex, year);
             weekdaysMap.put(day, weekday);
         }
 
@@ -36,9 +39,9 @@ public class CalendarManagerApp {
     }
 
     int getDaysInMonth() {
-        if (month == 4 || month == 6 || month == 9 || month == 11){
+        if (monthIndex == 4 || monthIndex == 6 || monthIndex == 9 || monthIndex == 11){
             return 30;
-        } else if (month == 2) {
+        } else if (monthIndex == 2) {
             return isLeapYear() ? 29 : 28;
         } else {
             return 31;
