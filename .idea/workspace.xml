@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5cdc80bd-1837-4ab6-a60a-1d16d5882eda" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/cm/application/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dhbw/cm/application/Note.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/cm/application/CalendarManagerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dhbw/cm/application/CalendarManagerApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/cm/application/CalendarView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dhbw/cm/application/CalendarView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,9 +17,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Class" />
         <option value="JUnit5 Test Class" />
         <option value="Enum" />
-        <option value="Class" />
       </list>
     </option>
   </component>
@@ -38,13 +39,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.CalendarViewTest.executor": "Run",
     "Application.NoteManagerApp.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "Termin",
+    "git-widget-placeholder": "Kalender",
     "last_opened_file_path": "C:/Users/Mariu/..workspace/swe2",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
