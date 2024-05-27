@@ -3,14 +3,15 @@ package de.dhbw.cm.application;
 import java.util.Map;
 
 public class CalendarView {
-    public void printMonth(int year, Month month, Map<Integer, Weekday> weekdaysMap){
+
+    public void printMonth(int year, Month month, Map<Integer, Weekday> weekdaysMap) {
 
         StringBuilder calenderLine = new StringBuilder();
         printHeadOfCalender(year, month);
         calenderLine.append(buildUpFiller(weekdaysMap.get(1)));
         int iterateIndex = 1;
-        for(Map.Entry<Integer, Weekday> dateWithWeekday : weekdaysMap.entrySet()){
-            if (dateWithWeekday.getValue().equals(Weekday.SATURDAY)){
+        for (Map.Entry<Integer, Weekday> dateWithWeekday : weekdaysMap.entrySet()) {
+            if (dateWithWeekday.getValue().equals(Weekday.SATURDAY)) {
                 System.out.println(calenderLine);
                 calenderLine.setLength(0);
             }
@@ -24,24 +25,26 @@ public class CalendarView {
         System.out.println(calenderLine);
     }
 
-    private StringBuilder buildUpFiller(Weekday weekday){
+    private StringBuilder buildUpFiller(Weekday weekday) {
         String filler = "   ";
-        StringBuilder fillerBuilded  = new StringBuilder();
+        StringBuilder fillerBuilded = new StringBuilder();
         int numberOfFillers = weekday.ordinal() - Weekday.SATURDAY.ordinal();
-        for(int i = 0; i < numberOfFillers; i++){
+        for (int i = 0; i < numberOfFillers; i++) {
             fillerBuilded.append(filler);
         }
         return fillerBuilded;
     }
 
-    private void printHeadOfCalender(int year, Month month){
+    private void printHeadOfCalender(int year, Month month) {
         StringBuilder calenderLine = new StringBuilder();
         calenderLine.append(month).append("   ").append(year);
         System.out.println(calenderLine);
         calenderLine.setLength(0);
-        for (Weekday weekday : Weekday.values()){
+        for (Weekday weekday : Weekday.values()) {
             calenderLine.append(weekday.getShortcut()).append(" ");
         }
         System.out.println(calenderLine);
-    };
+    }
+
+    ;
 }

@@ -8,22 +8,24 @@ import static de.dhbw.cm.application.Weekday.*;
 
 public class CalendarManagerApp {
 
-    private int year;
-    private int monthIndex;
-    private Month month;
-    private Map<Integer, Weekday> weekdaysMap = new HashMap<>();
-    private CalendarView calendarView;
+    private final int year;
+    private final int monthIndex;
+    private final Month month;
+    private final Map<Integer, Weekday> weekdaysMap = new HashMap<>();
+    private final CalendarView calendarView;
+
     public CalendarManagerApp(int year, int monthIndex) {
         this.year = year;
         this.monthIndex = monthIndex;
-        month = Month.values()[monthIndex + 1];
+        month = Month.values()[monthIndex - 1];
         getWeekdayPerDay();
         calendarView = new CalendarView();
     }
 
-    public void printMonth(){
+    public void printMonth() {
         calendarView.printMonth(year, month, weekdaysMap);
     }
+
     public boolean isLeapYear() {
         return ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0));
     }
@@ -39,7 +41,7 @@ public class CalendarManagerApp {
     }
 
     int getDaysInMonth() {
-        if (monthIndex == 4 || monthIndex == 6 || monthIndex == 9 || monthIndex == 11){
+        if (monthIndex == 4 || monthIndex == 6 || monthIndex == 9 || monthIndex == 11) {
             return 30;
         } else if (monthIndex == 2) {
             return isLeapYear() ? 29 : 28;

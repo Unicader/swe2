@@ -10,7 +10,7 @@ class CalendarViewTest {
 
     @BeforeEach
     void setUp() {
-        calendarManager = new CalendarManagerApp(2024, 2); // March 2024
+        calendarManager = new CalendarManagerApp(2024, 4);
     }
 
     @Test
