@@ -9,7 +9,11 @@ public class LoginView {
     ConsoleReader cr;
 
     public LoginView(ConsoleWriter consoleWriter, ConsoleReader consoleReader) {
-        this.userManager = new UserManager();
+        this(new UserManager(), consoleWriter, consoleReader);
+    }
+
+    public LoginView(UserManager userManager, ConsoleWriter consoleWriter, ConsoleReader consoleReader) {
+        this.userManager = userManager;
         this.cw = consoleWriter;
         this.cr = consoleReader;
     }
@@ -17,8 +21,6 @@ public class LoginView {
     public void show() {
         cw.clearConsole();
         showLogo();
-        cw.write(String.valueOf(userManager.getUsers()));
-        cw.write(System.getProperty("user.dir"));
         cw.write(AnsiCodes.YELLOW,
                 "Choose an option:\n" +
                         "\t1. Login\n" +
@@ -45,7 +47,6 @@ public class LoginView {
             createAccount();
         } else if (choice.equals("3")) {
             cw.write(AnsiCodes.YELLOW, "\nExiting...");
-            System.exit(1);
         } else {
             cw.write(AnsiCodes.RED, "\nInvalid choice. Please try again.\n");
             validateInput();
@@ -58,23 +59,24 @@ public class LoginView {
         performLogin();
     }
 
-    private void performLogin() {
-        cw.writeInLine(AnsiCodes.YELLOW, "Enter username (or 'b' to go back): ");
+    void performLogin() {
+        cw.writeInLine(AnsiCodes.YELLOW, "Enter username (or 'b' to go back):");
         String username = cr.readLine();
         if (username.equalsIgnoreCase("b")) {
             show();
-        }
-        cw.writeInLine(AnsiCodes.YELLOW, "Enter password: ");
-        String password = cr.readLine();
-
-        User user = userManager.loginUser(username, password);
-        if (user != null) {
-            cw.write(AnsiCodes.GREEN, "\nLogin successful!\n");
-            new OverviewView(user, username, cw, cr).show(); //open overview page
-            return;
         } else {
-            cw.write(AnsiCodes.RED, "\nInvalid username or password. Please try again.\n");
-            performLogin();
+            cw.writeInLine(AnsiCodes.YELLOW, "Enter password: ");
+            String password = cr.readLine();
+
+            User user = userManager.loginUser(username, password);
+            if (user != null) {
+                cw.write(AnsiCodes.GREEN, "\nLogin successful!\n");
+                OverviewView overviewView = new OverviewView(user, username, cw, cr);
+                overviewView.show();
+            } else {
+                cw.write(AnsiCodes.RED, "\nInvalid username or password. Please try again.\n");
+                performLogin();
+            }
         }
     }
 
@@ -84,21 +86,22 @@ public class LoginView {
         performCreateAccount();
     }
 
-    private void performCreateAccount() {
+    void performCreateAccount() {
         cw.writeInLine(AnsiCodes.YELLOW, "Enter new username (or 'b' to go back): ");
         String username = cr.readLine();
         if (username.equalsIgnoreCase("b")) {
             show();
-        }
-        cw.writeInLine(AnsiCodes.YELLOW, "Enter new password: ");
-        String password = cr.readLine();
-
-        if (userManager.createUser(username, password)) {
-            cw.write(AnsiCodes.GREEN, "\nAccount created successfully!\n");
-            show();
         } else {
-            cw.write(AnsiCodes.RED, "\nUsername already exists. Please try a different username.\n");
-            performCreateAccount();
+            cw.writeInLine(AnsiCodes.YELLOW, "Enter new password: ");
+            String password = cr.readLine();
+
+            if (userManager.createUser(username, password)) {
+                cw.write(AnsiCodes.GREEN, "\nAccount created successfully!\n");
+                show();
+            } else {
+                cw.write(AnsiCodes.RED, "\nUsername already exists. Please try a different username.\n");
+                performCreateAccount();
+            }
         }
     }
 }
