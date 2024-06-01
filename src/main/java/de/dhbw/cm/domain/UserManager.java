@@ -12,8 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserManager {
-    private final String STANDARD_FILE_PATH = "C:/Users/Mariu/Documents/GitHub/swe2/src/main/java/resources/users.json";
-//    private final String STANDARD_FILE_PATH = "src/main/java/resources/users.json";
+    private final String STANDARD_FILE_PATH = "src/main/java/resources/users.json";
     private final String FILE_PATH;
     private Map<String, User> users = new HashMap<>();
 
