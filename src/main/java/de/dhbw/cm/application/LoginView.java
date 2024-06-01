@@ -60,7 +60,7 @@ public class LoginView {
     }
 
     void performLogin() {
-        cw.writeInLine(AnsiCodes.YELLOW, "Enter username (or 'b' to go back):");
+        cw.writeInLine(AnsiCodes.YELLOW, "Enter username (or 'b' to go back): ");
         String username = cr.readLine();
         if (username.equalsIgnoreCase("b")) {
             show();
