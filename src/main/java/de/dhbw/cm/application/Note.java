@@ -1,7 +1,6 @@
 package de.dhbw.cm.application;
 
-import java.lang.annotation.Documented;
-import java.time.Month;
+import com.google.gson.Gson;
 
 public class Note {
     private String titel;
@@ -39,5 +38,21 @@ public class Note {
 
     public Priority getPriority() {
         return priority;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        String lineBreak = "\n";
+        sb.append("Titel:").append(titel).append(lineBreak);
+        sb.append("Note:").append(notes).append(lineBreak);
+        sb.append("date:").append(date).append(lineBreak);
+        sb.append("Priority:").append(priority).append(lineBreak);
+        return sb.toString();
+    }
+
+    public String noteToGson(){
+        Gson gson = new Gson();
+        return gson.toJson(this);
     }
 }
