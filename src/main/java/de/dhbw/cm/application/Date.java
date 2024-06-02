@@ -1,6 +1,6 @@
 package de.dhbw.cm.application;
 
-import java.time.Month;
+import java.util.Objects;
 
 public class Date {
     private int day;
@@ -23,5 +23,32 @@ public class Date {
 
     public Month getMonth() {
         return month;
+    }
+
+    @Override
+    public String toString() {
+        String dayInString = getDayInString();
+        return dayInString + "." + getMonth().getMonthNumber() + "." + getYear();
+    }
+
+    private String getDayInString() {
+        return String.format("%02d", getDay());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Date date = (Date) obj;
+        return day == date.day && month == date.month && year == date.year;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(day, month, year);
     }
 }

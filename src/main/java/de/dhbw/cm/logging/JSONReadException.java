@@ -14,12 +14,6 @@ public class JSONReadException extends Exception {
     }
 
     private void logError(String errorMessage) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String timestamp = dateFormat.format(new Date());
-        try (PrintWriter writer = new PrintWriter(new FileWriter(LOG_FILE, true))) {
-            writer.println(timestamp + " - " + errorMessage);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        JSONWriteException.duplicate(errorMessage, LOG_FILE);
     }
 }
