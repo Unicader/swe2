@@ -61,11 +61,7 @@ public class CypherTest {
     @Test
     public void testLongString() {
         try {
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < 1000; i++) {
-                sb.append("Hello, World! ");
-            }
-            String originalText = sb.toString();
+            String originalText = "Hello, World! ".repeat(1000);
             SecretKey secretKey = Cypher.generateKey(128);
 
             String encryptedText = Cypher.encrypt(originalText, secretKey);
