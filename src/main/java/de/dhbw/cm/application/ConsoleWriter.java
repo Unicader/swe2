@@ -25,7 +25,7 @@ public class ConsoleWriter {
     public void clearConsole() {
         try {
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-        }catch (Exception e) {
+        }catch (Exception ignored) {
         }
     }
 }

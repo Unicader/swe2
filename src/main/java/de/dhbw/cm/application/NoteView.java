@@ -3,8 +3,8 @@ package de.dhbw.cm.application;
 import java.util.List;
 
 public class NoteView {
-    private List<Note> notes;
-    private ConsoleWriter consoleWriter;
+    private final List<Note> notes;
+    private final ConsoleWriter consoleWriter;
     public NoteView(List<Note> notes, ConsoleWriter consoleWriter) {
         this.notes = notes;
         this.consoleWriter = consoleWriter;

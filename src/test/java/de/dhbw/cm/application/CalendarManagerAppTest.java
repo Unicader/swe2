@@ -20,6 +20,11 @@ class CalendarManagerAppTest {
     }
 
     @Test
+    void testIsLeapYear2000() {
+        assertFalse(new CalendarManagerApp(2100, 3).isLeapYear());
+    }
+
+    @Test
     void testGetWeekdayPerDay() {
         Map<Integer, Weekday> weekdaysMap = calendarManager.getWeekdayPerDay();
         assertNotNull(weekdaysMap);
@@ -28,11 +33,19 @@ class CalendarManagerAppTest {
 
     @Test
     void testGetDaysInMonth() {
-        assertEquals(31, calendarManager.getDaysInMonth()); // March 2024 has 31 days
-        CalendarManagerApp feb2024 = new CalendarManagerApp(2024, 2); // February 2024
-        assertEquals(29, feb2024.getDaysInMonth()); // February 2024 is a leap year
-        CalendarManagerApp feb2023 = new CalendarManagerApp(2023, 2); // February 2023
-        assertEquals(28, feb2023.getDaysInMonth()); // February 2023 is not a leap year
+        assertEquals(31, calendarManager.getDaysInMonth());
+    }
+
+    @Test
+    void testGetDaysInMonthLeapYear() {
+        CalendarManagerApp feb2024 = new CalendarManagerApp(2024, 2);
+        assertEquals(29, feb2024.getDaysInMonth());
+    }
+
+    @Test
+    void getDaysInMonthNonLeapYear() {
+        CalendarManagerApp feb2023 = new CalendarManagerApp(2023, 2);
+        assertEquals(28, feb2023.getDaysInMonth());
     }
 
     @Test

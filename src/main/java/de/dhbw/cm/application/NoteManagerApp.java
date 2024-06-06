@@ -14,7 +14,7 @@ public class NoteManagerApp {
     public List<Note> returnStoredNotes(String filepath) throws JSONReadException {
         List<Note> notes = new ArrayList<>();
         Gson gson = new Gson();
-        Note[] notesArray = null;
+        Note[] notesArray;
         try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
             notesArray = gson.fromJson(reader, Note[].class);
         } catch (IOException e) {
@@ -36,15 +36,10 @@ public class NoteManagerApp {
                 byte lastByte = randomAccessFile.readByte();
                 if (lastByte == ']') {
                     randomAccessFile.seek(length - 1);
-                    randomAccessFile.writeBytes(",\n");
-                    randomAccessFile.writeBytes(note.noteToGson());
-                    randomAccessFile.writeBytes("\n]");
-                } else {
-                    randomAccessFile.seek(length);
-                    randomAccessFile.writeBytes(",\n");
-                    randomAccessFile.writeBytes(note.noteToGson());
-                    randomAccessFile.writeBytes("\n]");
                 }
+                randomAccessFile.writeBytes(",\n");
+                randomAccessFile.writeBytes(note.noteToGson());
+                randomAccessFile.writeBytes("\n]");
             }
         } catch (IOException e) {
             throw new JSONWriteException("Fehler beim Schreiben der " +

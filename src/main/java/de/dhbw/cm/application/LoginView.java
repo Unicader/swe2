@@ -4,9 +4,9 @@ import de.dhbw.cm.domain.User;
 import de.dhbw.cm.domain.UserManager;
 
 public class LoginView {
-    UserManager userManager;
-    ConsoleWriter cw;
-    ConsoleReader cr;
+    final UserManager userManager;
+    final ConsoleWriter cw;
+    final ConsoleReader cr;
 
     public LoginView(ConsoleWriter consoleWriter, ConsoleReader consoleReader) {
         this(new UserManager(), consoleWriter, consoleReader);

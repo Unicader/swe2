@@ -3,9 +3,9 @@ package de.dhbw.cm.application;
 import java.util.Objects;
 
 public class Date {
-    private int day;
-    private int year;
-    private Month month;
+    private final int day;
+    private final int year;
+    private final Month month;
 
     public Date(int day, int year, Month month) {
         this.day = day;

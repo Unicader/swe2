@@ -3,10 +3,10 @@ package de.dhbw.cm.application;
 import com.google.gson.Gson;
 
 public class Note {
-    private String titel;
-    private String notes;
+    private final String titel;
+    private final String notes;
     private Date date;
-    private Priority priority;
+    private final Priority priority;
 
     public Note(String titel, String notes, Priority priority) {
         this.titel = titel;
