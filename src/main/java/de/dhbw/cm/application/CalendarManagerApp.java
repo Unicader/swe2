@@ -2,6 +2,7 @@ package de.dhbw.cm.application;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import static de.dhbw.cm.application.Weekday.*;
 
@@ -12,6 +13,7 @@ public class CalendarManagerApp {
     private final Month month;
     private final Map<Integer, Weekday> weekdaysMap = new HashMap<>();
     private final CalendarView calendarView;
+    private final Set<Integer> THIRTY_DAY_MONTHS = Set.of(4, 6, 9, 11);
 
     public CalendarManagerApp(int year, int monthIndex) {
         this.year = year;
@@ -40,13 +42,25 @@ public class CalendarManagerApp {
     }
 
     int getDaysInMonth() {
-        if (monthIndex == 4 || monthIndex == 6 || monthIndex == 9 || monthIndex == 11) {
+        if (isThirtyDayMonth()) {
             return 30;
-        } else if (monthIndex == 2) {
-            return isLeapYear() ? 29 : 28;
+        } else if (isFebruary()) {
+            return getDaysInFebruary();
         } else {
             return 31;
         }
+    }
+
+    private boolean isThirtyDayMonth() {
+        return THIRTY_DAY_MONTHS.contains(monthIndex);
+    }
+
+    private boolean isFebruary() {
+        return monthIndex == 2;
+    }
+
+    private int getDaysInFebruary() {
+        return isLeapYear() ? 29 : 28;
     }
 
     Weekday calculateWeekday(int day, int month, int year) {
