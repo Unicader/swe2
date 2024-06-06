@@ -17,6 +17,9 @@ public class CalendarManagerApp {
 
     public CalendarManagerApp(int year, int monthIndex) {
         this.year = year;
+        if (monthIndex < 1 || monthIndex > 12) {
+            throw new IllegalArgumentException("Month index must be between 1 and 12");
+        }
         this.monthIndex = monthIndex;
         month = Month.values()[monthIndex - 1];
         getWeekdayPerDay();
