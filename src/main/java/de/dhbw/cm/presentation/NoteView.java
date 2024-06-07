@@ -95,7 +95,11 @@ public class NoteView {
         String note = consoleReader.readLine();
 
 
-        Date date = dateInput();
+        Date date;
+
+        do {
+            date = dateInput();
+        }while (date == null);
 
         Priority prio = prioInput();
 
@@ -120,8 +124,7 @@ public class NoteView {
             date = Date.getDate(day, month, year);
             return date;
         }
-        dateInput();
-        return date;
+        return null;
     }
 
     private Priority prioInput() {
