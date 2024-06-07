@@ -121,6 +121,6 @@ public class NoteManagerApp {
     }
 
     public void exit() {
-
+        overviewView.show();
     }
 }
