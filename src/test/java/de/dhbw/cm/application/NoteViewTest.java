@@ -37,27 +37,8 @@ class NoteViewTest {
     void setUp() {
         MockitoAnnotations.openMocks(this);
         notes = spy(new ArrayList<>()); // Verwenden Sie eine echte Liste
-        noteView = new NoteView(noteManagerApp, notes, cw, cr, FILE_PATH);
+        noteView = new NoteView(noteManagerApp, cw, cr, FILE_PATH);
     }
 
-    @Test
-    void testGetNotes() {
-        List<Note> expectedNotes = List.of(new Note("Title1", "Note1", new Date(1, 2024, Month.JANUARY), Priority.HIGH),
-                new Note("Title2", "Note2", new Date(2, 2024, Month.FEBRUARY), Priority.LOW));
-        notes.addAll(expectedNotes);
-        List<Note> result = noteView.getNotes();
-        assertEquals(expectedNotes, result);
-    }
-
-    @Test
-    void testPrintNotes() {
-        Note note1 = new Note("Title1", "Note1", new Date(1, 2024, Month.JANUARY), Priority.HIGH);
-        Note note2 = new Note("Title2", "Note2", new Date(2, 2024, Month.FEBRUARY), Priority.LOW);
-        notes.add(note1);
-        notes.add(note2);
-        noteView.printNotes();
-        verify(cw, times(1)).write("NoteIndex: 1\n" + note1.toString());
-        verify(cw, times(1)).write("NoteIndex: 2\n" + note2.toString());
-    }
 
 }
