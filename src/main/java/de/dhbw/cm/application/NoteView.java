@@ -4,7 +4,6 @@ import de.dhbw.cm.logging.JSONReadException;
 import de.dhbw.cm.logging.JSONWriteException;
 
 import java.util.List;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class NoteView {

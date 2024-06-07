@@ -10,19 +10,22 @@ import java.util.List;
 
 
 public class NoteManagerApp {
+    final String filepath = "src/main/java/resources/";
     List<Note> notesTookByUser = new ArrayList<>();
     NoteView noteView;
 
-    public NoteManagerApp(String filepath, ConsoleReader consoleReader, ConsoleWriter consoleWriter) {
+    public NoteManagerApp(String username, ConsoleReader consoleReader, ConsoleWriter consoleWriter) {
         try {
-            notesTookByUser = returnStoredNotes(filepath);
+            String userFilePath = filepath + username;
+            notesTookByUser = returnStoredNotes(userFilePath);
             noteView = new NoteView(this, notesTookByUser, consoleWriter,
-                    consoleReader, filepath);
+                    consoleReader, userFilePath);
             noteView.show();
         } catch (JSONReadException e) {
             throw new RuntimeException(e);
         }
     }
+
     public NoteManagerApp(String filepath) throws JSONReadException {
         noteView = new NoteView(this, returnStoredNotes(filepath),
                 new ConsoleWriter(), new ConsoleReader(), filepath);
