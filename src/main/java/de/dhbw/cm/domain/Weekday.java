@@ -1,4 +1,4 @@
-package de.dhbw.cm.application;
+package de.dhbw.cm.domain;
 
 public enum Weekday{
     SATURDAY("SA"), SUNDAY("SU"), MONDAY("MO"), TUESDAY("TU"), WEDNESDAY("WE"), THURSDAY("TH"), FRIDAY("FR");

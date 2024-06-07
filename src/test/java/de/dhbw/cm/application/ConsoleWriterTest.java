@@ -1,5 +1,7 @@
 package de.dhbw.cm.application;
 
+import de.dhbw.cm.presentation.AnsiCodes;
+import de.dhbw.cm.presentation.ConsoleWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -7,7 +9,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
 
 class ConsoleWriterTest {
 

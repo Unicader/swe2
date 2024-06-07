@@ -1,4 +1,4 @@
-package de.dhbw.cm.application;
+package de.dhbw.cm.domain;
 
 import java.util.Objects;
 import java.util.Set;

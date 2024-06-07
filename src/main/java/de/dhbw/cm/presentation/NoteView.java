@@ -1,5 +1,9 @@
-package de.dhbw.cm.application;
+package de.dhbw.cm.presentation;
 
+import de.dhbw.cm.application.*;
+import de.dhbw.cm.domain.Date;
+import de.dhbw.cm.domain.Note;
+import de.dhbw.cm.infrastructure.repository.NoteManagerApp;
 import de.dhbw.cm.logging.JSONReadException;
 import de.dhbw.cm.logging.JSONWriteException;
 

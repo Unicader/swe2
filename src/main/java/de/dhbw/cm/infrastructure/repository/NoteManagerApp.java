@@ -1,8 +1,13 @@
-package de.dhbw.cm.application;
+package de.dhbw.cm.infrastructure.repository;
 
 import com.google.gson.Gson;
+import de.dhbw.cm.domain.Note;
 import de.dhbw.cm.logging.JSONReadException;
 import de.dhbw.cm.logging.JSONWriteException;
+import de.dhbw.cm.presentation.ConsoleReader;
+import de.dhbw.cm.presentation.ConsoleWriter;
+import de.dhbw.cm.presentation.NoteView;
+import de.dhbw.cm.presentation.OverviewView;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -17,8 +22,10 @@ public class NoteManagerApp {
     List<Note> notesTookByUser = new ArrayList<>();
     NoteView noteView;
     String userFilePath;
+    OverviewView overviewView;
 
-    public NoteManagerApp(String username, ConsoleReader consoleReader, ConsoleWriter consoleWriter) {
+    public NoteManagerApp(String username, ConsoleReader consoleReader, ConsoleWriter consoleWriter, OverviewView overviewView) {
+        this.overviewView = overviewView;
         try {
             userFilePath = filepath + username + "/note.json";
             filepath = filepath + username;

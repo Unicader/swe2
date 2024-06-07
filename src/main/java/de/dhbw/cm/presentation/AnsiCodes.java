@@ -1,4 +1,4 @@
-package de.dhbw.cm.application;
+package de.dhbw.cm.presentation;
 
 public enum AnsiCodes {
     RESET("\u001B[0m"),

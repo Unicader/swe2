@@ -1,7 +1,6 @@
 package de.dhbw.cm.application;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import de.dhbw.cm.presentation.ConsoleReader;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;

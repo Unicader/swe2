@@ -1,4 +1,6 @@
 package de.dhbw.cm.application;
+import de.dhbw.cm.domain.Weekday;
+import de.dhbw.cm.presentation.ConsoleWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +13,7 @@ class CalendarManagerAppTest {
 
     @BeforeEach
     void setUp() {
-        calendarManager = new CalendarManagerApp(2024, 3); // March 2024
+        calendarManager = new CalendarManagerApp(2024, 3, new ConsoleWriter()); // March 2024
     }
 
     @Test
@@ -21,7 +23,7 @@ class CalendarManagerAppTest {
 
     @Test
     void testIsLeapYear2000() {
-        assertFalse(new CalendarManagerApp(2100, 3).isLeapYear());
+        assertFalse(new CalendarManagerApp(2100, 3, new ConsoleWriter()).isLeapYear());
     }
 
     @Test
@@ -38,13 +40,13 @@ class CalendarManagerAppTest {
 
     @Test
     void testGetDaysInMonthLeapYear() {
-        CalendarManagerApp feb2024 = new CalendarManagerApp(2024, 2);
+        CalendarManagerApp feb2024 = new CalendarManagerApp(2024, 2, new ConsoleWriter());
         assertEquals(29, feb2024.getDaysInMonth());
     }
 
     @Test
     void getDaysInMonthNonLeapYear() {
-        CalendarManagerApp feb2023 = new CalendarManagerApp(2023, 2);
+        CalendarManagerApp feb2023 = new CalendarManagerApp(2023, 2, new ConsoleWriter());
         assertEquals(28, feb2023.getDaysInMonth());
     }
 

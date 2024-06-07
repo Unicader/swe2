@@ -1,5 +1,6 @@
 package de.dhbw.cm.application;
 
+import de.dhbw.cm.presentation.ConsoleWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +11,7 @@ class CalendarViewTest {
 
     @BeforeEach
     void setUp() {
-        calendarManager = new CalendarManagerApp(2024, 4);
+        calendarManager = new CalendarManagerApp(2024, 4, new ConsoleWriter());
     }
 
     @Test

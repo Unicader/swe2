@@ -1,8 +1,10 @@
 package de.dhbw.cm.application;
 import com.google.gson.Gson;
+import de.dhbw.cm.domain.Date;
+import de.dhbw.cm.domain.Month;
+import de.dhbw.cm.domain.Note;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import de.dhbw.cm.application.Month;
 
 public class NoteTest {
 

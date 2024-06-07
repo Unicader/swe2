@@ -1,10 +1,7 @@
 package de.dhbw.cm.presentation;
 
-import de.dhbw.cm.application.AnsiCodes;
-import de.dhbw.cm.application.ConsoleReader;
-import de.dhbw.cm.application.ConsoleWriter;
 import de.dhbw.cm.domain.User;
-import de.dhbw.cm.domain.UserManager;
+import de.dhbw.cm.infrastructure.repository.UserManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -125,10 +122,8 @@ public class LoginViewTest {
     @Test
     void testPerformLoginValid() {
         // Arrange
-        when(loginView.cr.readLine()).thenReturn("username").thenReturn("password");
+        when(loginView.cr.readLine()).thenReturn("username").thenReturn("password").thenReturn("4");
         when(um.loginUser(any(), any())).thenReturn(new User("username", "password"));
-        OverviewView mockOverviewView = mock(OverviewView.class);
-        doNothing().when(mockOverviewView).show();
 
         // Act
         loginView.performLogin();

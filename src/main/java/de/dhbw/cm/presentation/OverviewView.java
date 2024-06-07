@@ -1,9 +1,7 @@
 package de.dhbw.cm.presentation;
 
-import de.dhbw.cm.application.AnsiCodes;
-import de.dhbw.cm.application.ConsoleReader;
-import de.dhbw.cm.application.ConsoleWriter;
-import de.dhbw.cm.application.NoteManagerApp;
+import de.dhbw.cm.application.CalendarManagerApp;
+import de.dhbw.cm.infrastructure.repository.NoteManagerApp;
 import de.dhbw.cm.domain.User;
 
 public class OverviewView {
@@ -37,10 +35,13 @@ public class OverviewView {
     void validateInput() {
         String choice = cr.readLine();
         if (choice.equals("1")) {
-            NoteManagerApp noteManagerApp = new NoteManagerApp(user.getUsername(), cr, cw);
+            NoteManagerApp noteManagerApp =
+                    new NoteManagerApp(user.getUsername(), cr, cw, this);
             noteManagerApp.showView();
         } else if (choice.equals("2")) {
             //TODO show calender
+            CalenderOverviewView calenderOverviewView = new CalenderOverviewView(cw, cr, this);
+            calenderOverviewView.show();
         } else if (choice.equals("3")) {
             loginView.show();
         } else if (choice.equals("4")) {

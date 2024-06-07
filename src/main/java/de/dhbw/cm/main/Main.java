@@ -1,7 +1,7 @@
 package de.dhbw.cm.main;
 
-import de.dhbw.cm.application.ConsoleReader;
-import de.dhbw.cm.application.ConsoleWriter;
+import de.dhbw.cm.presentation.ConsoleReader;
+import de.dhbw.cm.presentation.ConsoleWriter;
 import de.dhbw.cm.presentation.LoginView;
 
 public class Main {
