@@ -30,7 +30,7 @@ public class NoteManagerApp {
             userFilePath = filepath + username + "/note.json";
             filepath = filepath + username;
             notesTookByUser = returnStoredNotes(userFilePath);
-            noteView = new NoteView(this, notesTookByUser, consoleWriter,
+            noteView = new NoteView(this, consoleWriter,
                     consoleReader, userFilePath);
         } catch (JSONReadException e) {
             throw new RuntimeException(e);
@@ -38,7 +38,7 @@ public class NoteManagerApp {
     }
 
     public NoteManagerApp(String filepath) throws JSONReadException {
-        noteView = new NoteView(this, returnStoredNotes(filepath),
+        noteView = new NoteView(this,
                 new ConsoleWriter(), new ConsoleReader(), filepath);
     }
 
@@ -122,5 +122,9 @@ public class NoteManagerApp {
 
     public void exit() {
         overviewView.show();
+    }
+
+    public List<Note> getNotes() {
+        return notesTookByUser;
     }
 }

@@ -12,7 +12,6 @@ import java.util.regex.Pattern;
 
 public class NoteView {
     private final ConsoleReader consoleReader;
-    private List<Note> notes;
     private final ConsoleWriter consoleWriter;
     private NoteManagerApp noteManagerApp;
     private String filepath;
@@ -20,27 +19,19 @@ public class NoteView {
     private static final Pattern DATE_PATTERN = Pattern.compile("^\\d{2}-\\d{2}-\\d{4}$");
 
 
-    public NoteView(NoteManagerApp noteManagerApp, List<Note> notes,
+    public NoteView(NoteManagerApp noteManagerApp,
                     ConsoleWriter consoleWriter,
                     ConsoleReader consoleReader, String filepath) {
         this.noteManagerApp = noteManagerApp;
-        this.notes = notes;
         this.consoleWriter = consoleWriter;
         this.consoleReader = consoleReader;
         this.filepath = filepath;
     }
 
-    public List<Note> getNotes() {
-        return notes;
-    }
-
-    public void setNotes(List<Note> notes) {
-        this.notes = notes;
-    }
-
     public void printNotes() {
         int index = 1;
-        if (notes != null && !notes.isEmpty()) {
+        if (noteManagerApp.getNotes() != null && !noteManagerApp.getNotes().isEmpty()) {
+            List<Note> notes = noteManagerApp.getNotes();
             for (Note note : notes) {
                 String consoleOutput = "NoteIndex: " + index + "\n";
                 consoleWriter.write(consoleOutput + note.toString());
@@ -67,8 +58,8 @@ public class NoteView {
         } else if (choice.equals("3")) {
             getOverview();
             int noteNumber = getNoteNumber();
-            if (noteNumber > 0 && noteNumber <= notes.size()) {
-                deleteNote(notes.get(noteNumber - 1));
+            if (noteNumber > 0 && noteNumber <= noteManagerApp.getNotes().size()) {
+                deleteNote(noteManagerApp.getNotes().get(noteNumber - 1));
             }
             showMenu();
         } else if (choice.equals("4")) {
@@ -166,12 +157,7 @@ public class NoteView {
     }
 
     private void getOverview() {
-        try {
-            notes = noteManagerApp.returnStoredNotes(filepath);
-            this.printNotes();
-        } catch (JSONReadException e) {
-            throw new RuntimeException(e);
-        }
+        this.printNotes();
     }
 
     private void showMenu() {
