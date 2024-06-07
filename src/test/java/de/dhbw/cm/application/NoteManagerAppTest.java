@@ -4,10 +4,8 @@ import de.dhbw.cm.logging.JSONWriteException;
 import org.junit.jupiter.api.Test;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class NoteManagerAppTest {
 
@@ -25,7 +23,7 @@ public class NoteManagerAppTest {
         fileWriter.write("]");
         fileWriter.close();
 
-        NoteManagerApp noteManagerApp = new NoteManagerApp();
+        NoteManagerApp noteManagerApp = new NoteManagerApp(FILE_PATH);
         List<Note> notes = noteManagerApp.returnStoredNotes(FILE_PATH);
 
         assertEquals(1, notes.size());
@@ -34,9 +32,9 @@ public class NoteManagerAppTest {
     }
 
     @Test
-    public void testStoreNote() throws JSONWriteException {
+    public void testStoreNote() throws JSONWriteException, JSONReadException {
         Note note = new Note("Meeting", "Discuss project status", Priority.HIGH);
-        NoteManagerApp noteManagerApp = new NoteManagerApp();
+        NoteManagerApp noteManagerApp = new NoteManagerApp(FILE_PATH);
         noteManagerApp.storeNote(FILE_PATH, note);
     }
 }

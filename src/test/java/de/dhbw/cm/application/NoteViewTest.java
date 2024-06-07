@@ -15,15 +15,22 @@ class NoteViewTest {
 
     @Mock
     private ConsoleWriter cw;
+    @Mock
+    private ConsoleReader cr;
+
+    @Mock
+    private NoteManagerApp noteManagerApp;
 
     private NoteView noteView;
     private List<Note> notes;
+    public static final String FILE_PATH = "src/test/java/resources/notes" +
+            ".json";
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
         notes = spy(new ArrayList<>()); // Verwenden Sie eine echte Liste
-        noteView = new NoteView(notes, cw);
+        noteView = new NoteView(noteManagerApp, notes, cw, cr, FILE_PATH);
     }
 
     @Test
