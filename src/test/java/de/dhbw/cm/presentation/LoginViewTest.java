@@ -122,10 +122,8 @@ public class LoginViewTest {
     @Test
     void testPerformLoginValid() {
         // Arrange
-        when(loginView.cr.readLine()).thenReturn("username").thenReturn("password");
+        when(loginView.cr.readLine()).thenReturn("username").thenReturn("password").thenReturn("4");
         when(um.loginUser(any(), any())).thenReturn(new User("username", "password"));
-        OverviewView mockOverviewView = mock(OverviewView.class);
-        doNothing().when(mockOverviewView).show();
 
         // Act
         loginView.performLogin();

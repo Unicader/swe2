@@ -2,7 +2,8 @@ package de.dhbw.cm.application;
 
 import de.dhbw.cm.domain.Month;
 import de.dhbw.cm.domain.Weekday;
-import de.dhbw.cm.presentation.CalendarView;
+import de.dhbw.cm.presentation.CalendarMonthGenerator;
+import de.dhbw.cm.presentation.ConsoleWriter;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,10 +17,10 @@ public class CalendarManagerApp {
     private final int monthIndex;
     private final Month month;
     private final Map<Integer, Weekday> weekdaysMap = new HashMap<>();
-    private final CalendarView calendarView;
+    private final CalendarMonthGenerator calendarView;
     private final Set<Integer> THIRTY_DAY_MONTHS = Set.of(4, 6, 9, 11);
 
-    public CalendarManagerApp(int year, int monthIndex) {
+    public CalendarManagerApp(int year, int monthIndex, ConsoleWriter consoleWriter) {
         this.year = year;
         if (monthIndex < 1 || monthIndex > 12) {
             throw new IllegalArgumentException("Month index must be between 1 and 12");
@@ -27,7 +28,7 @@ public class CalendarManagerApp {
         this.monthIndex = monthIndex;
         month = Month.values()[monthIndex - 1];
         getWeekdayPerDay();
-        calendarView = new CalendarView();
+        calendarView = new CalendarMonthGenerator(consoleWriter);
     }
 
     public void printMonth() {

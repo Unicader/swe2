@@ -1,5 +1,6 @@
 package de.dhbw.cm.presentation;
 
+import de.dhbw.cm.application.CalendarManagerApp;
 import de.dhbw.cm.infrastructure.repository.NoteManagerApp;
 import de.dhbw.cm.domain.User;
 
@@ -37,6 +38,8 @@ public class OverviewView {
             new NoteManagerApp(user.getUsername(), cr, cw, this);
         } else if (choice.equals("2")) {
             //TODO show calender
+            CalenderOverviewView calenderOverviewView = new CalenderOverviewView(cw, cr, this);
+            calenderOverviewView.show();
         } else if (choice.equals("3")) {
             loginView.show();
         } else if (choice.equals("4")) {
