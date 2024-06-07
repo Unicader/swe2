@@ -58,7 +58,7 @@ public class Date {
     public static Date getDate(int day, int month, int year) {
         Month selectedMonth = getMonth(month);
         if (selectedMonth == null && !checkIfDateIaValid(day, month, year)){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Date is not valid");
         }
         return new Date(day, year, selectedMonth);
     }
@@ -66,8 +66,14 @@ public class Date {
     public static Month getMonth(int month) {
         Month[] values = Month.values();
         Month selectedMonth = null;
+        String monthAsString = "";
+        if (month > 0 && month < 10) {
+            monthAsString = "0" + month;
+        }else {
+            monthAsString = String.valueOf(month);
+        }
         for (Month value : values) {
-            if (value.getMonthNumber().equals(month + "")) {
+            if (value.getMonthNumber().equals(monthAsString)) {
                 selectedMonth = value;
             }
         }

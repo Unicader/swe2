@@ -37,7 +37,8 @@ public class OverviewView {
     void validateInput() {
         String choice = cr.readLine();
         if (choice.equals("1")) {
-            new NoteManagerApp(user.getUsername(), cr, cw);
+            NoteManagerApp noteManagerApp = new NoteManagerApp(user.getUsername(), cr, cw);
+            noteManagerApp.showView();
         } else if (choice.equals("2")) {
             //TODO show calender
         } else if (choice.equals("3")) {

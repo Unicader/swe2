@@ -55,4 +55,16 @@ public class Note {
         Gson gson = new Gson();
         return gson.toJson(this);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Note note = (Note) obj;
+        return titel.equals(note.titel) && notes.equals(note.notes) && priority.equals(note.priority) && date.equals(note.date);
+    }
 }
