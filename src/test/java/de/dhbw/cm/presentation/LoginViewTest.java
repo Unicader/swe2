@@ -1,5 +1,8 @@
-package de.dhbw.cm.application;
+package de.dhbw.cm.presentation;
 
+import de.dhbw.cm.application.AnsiCodes;
+import de.dhbw.cm.application.ConsoleReader;
+import de.dhbw.cm.application.ConsoleWriter;
 import de.dhbw.cm.domain.User;
 import de.dhbw.cm.domain.UserManager;
 import org.junit.jupiter.api.BeforeEach;

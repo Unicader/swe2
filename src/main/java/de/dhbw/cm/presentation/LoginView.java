@@ -1,5 +1,8 @@
-package de.dhbw.cm.application;
+package de.dhbw.cm.presentation;
 
+import de.dhbw.cm.application.AnsiCodes;
+import de.dhbw.cm.application.ConsoleReader;
+import de.dhbw.cm.application.ConsoleWriter;
 import de.dhbw.cm.domain.User;
 import de.dhbw.cm.domain.UserManager;
 
@@ -71,7 +74,7 @@ public class LoginView {
             User user = userManager.loginUser(username, password);
             if (user != null) {
                 cw.write(AnsiCodes.GREEN, "\nLogin successful!\n");
-                OverviewView overviewView = new OverviewView(user, username, cw, cr);
+                OverviewView overviewView = new OverviewView(user, username, cw, cr, this);
                 overviewView.show();
             } else {
                 cw.write(AnsiCodes.RED, "\nInvalid username or password. Please try again.\n");

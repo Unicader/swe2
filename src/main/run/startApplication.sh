@@ -6,6 +6,9 @@ cd "$(dirname "$0")/../../.."
 # Definiere das Verzeichnis für die Klassendateien
 CLASS_DIR="bin"
 
+# Delete old class files
+rm -rf "$CLASS_DIR"
+
 # Erstelle das Verzeichnis, falls es nicht existiert
 mkdir -p "$CLASS_DIR"
 
