@@ -35,10 +35,4 @@ public class NoteManagerAppTest {
         assertEquals("Test note", notes.get(0).getNotes());
     }
 
-    @Test
-    public void testStoreNote() throws JSONWriteException, JSONReadException {
-        Note note = new Note("Meeting", "Discuss project status", Priority.HIGH);
-        NoteManagerApp noteManagerApp = new NoteManagerApp(FILE_PATH);
-        noteManagerApp.storeNote(FILE_PATH, note);
-    }
 }

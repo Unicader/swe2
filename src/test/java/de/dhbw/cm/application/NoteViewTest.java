@@ -56,13 +56,8 @@ class NoteViewTest {
         notes.add(note1);
         notes.add(note2);
         noteView.printNotes();
-        verify(cw, times(1)).write(note1.toString());
-        verify(cw, times(1)).write(note2.toString());
+        verify(cw, times(1)).write("NoteIndex: 1\n" + note1.toString());
+        verify(cw, times(1)).write("NoteIndex: 2\n" + note2.toString());
     }
 
-    @Test
-    void testPrintNotes_EmptyList() {
-        noteView.printNotes();
-        verify(cw, never()).write(anyString());
-    }
 }

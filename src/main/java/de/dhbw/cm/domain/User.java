@@ -1,6 +1,5 @@
 package de.dhbw.cm.domain;
 
-import de.dhbw.cm.application.Date;
 import de.dhbw.cm.application.Hash;
 
 public class User {
