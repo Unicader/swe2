@@ -1,10 +1,7 @@
 package de.dhbw.cm.presentation;
 
-import de.dhbw.cm.application.AnsiCodes;
-import de.dhbw.cm.application.ConsoleReader;
-import de.dhbw.cm.application.ConsoleWriter;
 import de.dhbw.cm.domain.User;
-import de.dhbw.cm.domain.UserManager;
+import de.dhbw.cm.infrastructure.repository.UserManager;
 
 public class LoginView {
     final UserManager userManager;

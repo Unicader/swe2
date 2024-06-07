@@ -1,4 +1,4 @@
-package de.dhbw.cm.application;
+package de.dhbw.cm.presentation;
 
 
 public class ConsoleWriter {

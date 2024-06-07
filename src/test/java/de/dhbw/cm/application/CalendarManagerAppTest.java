@@ -1,4 +1,5 @@
 package de.dhbw.cm.application;
+import de.dhbw.cm.domain.Weekday;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package de.dhbw.cm.application;
+package de.dhbw.cm.domain;
 
 public enum Month {
     JANUARY("January", "01"),

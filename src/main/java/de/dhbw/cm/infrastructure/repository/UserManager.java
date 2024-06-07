@@ -1,8 +1,9 @@
-package de.dhbw.cm.domain;
+package de.dhbw.cm.infrastructure.repository;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import de.dhbw.cm.application.Hash;
+import de.dhbw.cm.domain.User;
 
 import java.io.FileReader;
 import java.io.FileWriter;

@@ -1,6 +1,7 @@
-package de.dhbw.cm.application;
+package de.dhbw.cm.domain;
 
 import com.google.gson.Gson;
+import de.dhbw.cm.application.Priority;
 
 public class Note {
     private final String titel;

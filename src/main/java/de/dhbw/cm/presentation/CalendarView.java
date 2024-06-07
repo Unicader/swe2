@@ -1,4 +1,7 @@
-package de.dhbw.cm.application;
+package de.dhbw.cm.presentation;
+
+import de.dhbw.cm.domain.Month;
+import de.dhbw.cm.domain.Weekday;
 
 import java.util.Map;
 

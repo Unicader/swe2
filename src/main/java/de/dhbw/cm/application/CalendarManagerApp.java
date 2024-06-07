@@ -1,10 +1,14 @@
 package de.dhbw.cm.application;
 
+import de.dhbw.cm.domain.Month;
+import de.dhbw.cm.domain.Weekday;
+import de.dhbw.cm.presentation.CalendarView;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import static de.dhbw.cm.application.Weekday.*;
+import static de.dhbw.cm.domain.Weekday.*;
 
 public class CalendarManagerApp {
 
